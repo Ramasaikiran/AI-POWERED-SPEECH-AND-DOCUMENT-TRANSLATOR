@@ -5,4 +5,4 @@ Additionally, the application supports document translation, allowing users to u
 The system extracts text from these documents, processes the translation using Google Translate, and provides the translated content. 
 This functionality is particularly beneficial for students, professionals, and travelers who require efficient and accurate document translations.
 By integrating advanced speech recognition, natural language processing, and text-to-speech technologies.
-This project aims to provide a seamless and accessible solution for overcoming language barriers in both verbal and written communication. 
+This project aims to provide a seamless and accessible solution for overcoming language barriers in both verbal and written communication.
