@@ -1,4 +1,3 @@
-<script>
 // Language code to name mapping
 const LANGUAGES = {
     en: "English", hi: "Hindi", te: "Telugu", ta: "Tamil", kn: "Kannada",
@@ -32,33 +31,15 @@ const speechStatusBar = document.getElementById("speechStatusBar");
 populateLanguages(targetLanguage);
 populateLanguages(speechTargetLanguage);
 
-// ✅ Official Google Cloud Translation API
-const apiKey = "YOUR_GOOGLE_CLOUD_API_KEY"; // <-- Paste your key here
-
 async function translateText(text, targetLang, statusBar) {
-    const url = `https://translation.googleapis.com/language/translate/v2?key=${apiKey}`;
-    const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            q: text,
-            target: targetLang
-        })
-    });
-
+    const url = `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=${targetLang}&dt=t&q=${encodeURIComponent(text)}`;
+    const res = await fetch(url);
     const data = await res.json();
-
-    if (data.error) {
-        statusBar.textContent = `Error: ${data.error.message}`;
-        return "Translation failed.";
-    }
-
-    const translated = data.data.translations[0].translatedText;
-    statusBar.textContent = `Translated to ${LANGUAGES[targetLang]}`;
-    return translated;
+    const detectedLang = data[2] || "auto";
+    statusBar.textContent = `Translating from ${LANGUAGES[detectedLang] || detectedLang} to ${LANGUAGES[targetLang]}`;
+    return data[0].map(part => part[0]).join("");
 }
 
-// Button: Translate text
 translateBtn.addEventListener("click", async () => {
     const text = inputText.value.trim();
     if (!text) return;
@@ -66,7 +47,6 @@ translateBtn.addEventListener("click", async () => {
     outputText.value = await translateText(text, targetLanguage.value, textStatusBar);
 });
 
-// File input
 fileInput.addEventListener("change", async (e) => {
     const file = e.target.files[0];
     if (!file) return;
@@ -96,7 +76,6 @@ fileInput.addEventListener("change", async (e) => {
     outputText.value = await translateText(text, targetLanguage.value, textStatusBar);
 });
 
-// Download translated text
 downloadBtn.addEventListener("click", () => {
     const text = outputText.value.trim();
     if (!text) return;
@@ -151,4 +130,3 @@ if (recognition) {
     listenBtn.disabled = true;
     listenBtn.textContent = "Speech Not Supported";
 }
-</script>
