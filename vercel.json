@@ -1,11 +1,23 @@
 {
   "version": 2,
+  "functions": {
+    "api/translate.js": {
+      "runtime": "@vercel/node@3.0.0"
+    }
+  },
   "routes": [
     {
+      // Route all /api/ requests to the function
+      "src": "/api/(.*)",
+      "dest": "/api/translate.js"
+    },
+    {
+      // Route the root to index.html
       "src": "/",
       "dest": "/index.html"
     },
     {
+      // Catch-all for other static assets (CSS, JS, images, etc.)
       "src": "/(.*)",
       "dest": "/$1"
     }
