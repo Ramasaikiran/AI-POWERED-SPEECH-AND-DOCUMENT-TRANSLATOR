@@ -1,0 +1,22 @@
+{
+  "version": 2,
+  "functions": {
+    "api/index.js": {
+      "runtime": "@vercel/node@20.x" 
+    }
+  },
+  "routes": 
+    {
+      "src": "/(.*\\.(?:js|css|html|json|png|jpg|gif|svg|pdf|docx))",
+      "dest": "/$1"
+    },
+    {
+      "src": "/",
+      "dest": "/index.html"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/ai1.js"
+    }
+  ]
+}
