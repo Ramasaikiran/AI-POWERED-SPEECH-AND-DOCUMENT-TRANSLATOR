@@ -21,7 +21,9 @@ A professional **AI-powered translator** built with **JavaScript, Google Transla
 * Clean interface with minimal distraction
 * Dark/Light mode toggle
 * Loading states and progress indicators
+* 
 ## 🏗️ Project Structure
+```text 
 ai-powered-speech-and-document-translator/
 ├── index.html        # Main entry point
 ├── style.css         # Styling (custom + modern theme)
@@ -29,6 +31,7 @@ ai-powered-speech-and-document-translator/
 ├── assets/           # Icons, images
 ├── libs/             # External libs (pdf.js, mammoth.js, etc.)
 └── README.md         # Documentation
+```
 ## 🚀 Quick Start
 ### Prerequisites
 * **Node.js** (v16+) for running local servers
@@ -99,8 +102,8 @@ Browser tests recommended:
 * 📲 Mobile PWA (Progressive Web App) version
 * 🧑‍🤝‍🧑 Multi-user collaboration (real-time translated chats)
 * 🎥 Video subtitle translation (YouTube-style captions)
- 🤝 Contributing
 
+🤝 Contributing
 1. Fork the repo
 2. Create feature branch (`git checkout -b feature/awesome-feature`)
 3. Commit changes (`git commit -m 'Add awesome feature'`)
@@ -116,7 +119,3 @@ This project is licensed under the **MIT License**.
 Frontend & UI → HTML, CSS, JavaScript
 Backend & APIs → Google Translate API, Web Speech API, PDF.js, Mammoth.js
 Design** → Clean, responsive dashboard-style UI
-
-# 🔗 Links
-
-GitHub Repository → [AI-POWERED-SPEECH-AND-DOCUMENT-TRANSLATOR](https://github.com/Ramasaikiran/AI-POWERED-SPEECH-AND-DOCUMENT-TRANSLATOR)
